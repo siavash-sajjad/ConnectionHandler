@@ -40,6 +40,11 @@ public class ConnectionHandler extends AsyncTask<Void, Void, String> {
     private List<NameValuePair> nameValuePairList;
 
 
+
+    public ConnectionHandler(Context context){
+        this.context = context;
+    }
+
     public ConnectionHandler(Context context, String url, Constant.method method, String message, boolean cancelable, CommunicatorListener listener) {
         this.context = context;
         this.url = url;
@@ -119,7 +124,7 @@ public class ConnectionHandler extends AsyncTask<Void, Void, String> {
         super.onPostExecute(result);
     }
 
-    private boolean isAccessToInternet() {
+    public boolean isAccessToInternet() {
         boolean connected = false;
 
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
